@@ -1073,7 +1073,7 @@ function AddWindow(options)
                         Thickness = 1,
                         Color = Color3.fromRGB(0, 0, 0),
                         LineJoinMode = Enum.LineJoinMode.Miter,
-                        Parent = Keybind,
+                        Parent = KEYBIND,
                         Name = "UIStroke8",
                     })
 
@@ -2511,6 +2511,7 @@ getgenv().AsicCombat = getgenv().AsicCombat or {
     prediction_x = 1,
     prediction_z = 1,
 }
+-- Slider callbacks update AsicCombat when UI loads or config loads
 
 local aim_assist = combat_main:AddToggle({
     name = "Aim Assist",
@@ -2546,7 +2547,7 @@ local smoothing_slider = combat_main:AddSlider({
     name = "Smoothing (0.000 - 1.000)",
     min = 0,
     max = 1000,
-    default = 0,
+    default = 500,
     callback = function(val)
         if getgenv().AsicCombat then getgenv().AsicCombat.smoothing = (val or 0) / 1000 end
     end
